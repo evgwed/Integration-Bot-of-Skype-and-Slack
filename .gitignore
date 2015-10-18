@@ -1,3 +1,4 @@
 packages
 SkypeBotConsole/bin
 SkypeBotConsole/obj
+*.suo
