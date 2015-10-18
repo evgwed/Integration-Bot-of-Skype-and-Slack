@@ -2,3 +2,4 @@ packages
 SkypeBotConsole/bin
 SkypeBotConsole/obj
 *.suo
+SkypeBotConsole/App.config
