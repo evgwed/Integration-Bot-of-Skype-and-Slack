@@ -1,1 +1,2 @@
 regsvr32 SkypeBotConsole\Libraries\Skype4COM.dll
+regsvr32 SkypeBotConsole\Libraries\Interop.SKYPE4COMLib.dll

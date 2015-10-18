@@ -1,4 +1,4 @@
-﻿using Interop.SKYPE4COMLib;
+﻿using SKYPE4COMLib;
 using SkypeBot;
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,7 @@ namespace SkypeBotConsole
     static class SkypeManager
     {
         private static Skype _skype = new Skype();
+        private static IChat _chat = null;
         private static string _SkypeChatUniqueCode = String.Empty;
         private static string _BotSkypeName = String.Empty;
 
@@ -36,11 +37,17 @@ namespace SkypeBotConsole
 
         private static void _OnMessageReceived(ChatMessage pMessage, TChatMessageStatus status)
         {
-            Console.WriteLine("ChatName:" + pMessage.ChatName);
             if ((status == TChatMessageStatus.cmsReceived || status == TChatMessageStatus.cmsSent) && pMessage.ChatName.IndexOf(_SkypeChatUniqueCode) >= 0)
             {
+                Console.WriteLine(pMessage.Body);
                 SlackSender.SendMessage("*" + (String.IsNullOrEmpty(pMessage.Sender.DisplayName) ? _BotSkypeName : pMessage.Sender.DisplayName) + "* : " + pMessage.Body);
+                _chat = pMessage.Chat;
+                Console.WriteLine("ChatName:" + pMessage.ChatName);
             }
+        }
+        public static void SendMessage(string messageText) {
+            if (_chat != null)
+                _chat.SendMessage(messageText);
         }
     }
 }

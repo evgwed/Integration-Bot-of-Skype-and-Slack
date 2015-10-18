@@ -10,4 +10,7 @@
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>C:\Users\Evgeniy\Desktop\SkypeBot\Integration-Bot-of-Skype-and-Slack\SkypeBotConsole\Libraries\</ReferencePath>
+  </PropertyGroup>
 </Project>

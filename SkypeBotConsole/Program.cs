@@ -20,9 +20,15 @@ namespace SkypeBotConsole
             ");
             string msg = String.Empty;
             while (msg != "exit") {
-                if (msg == "start") {
-                    Thread myThread = new Thread(SkypeManager.AttachSkype);
-                    myThread.Start(); 
+                switch (msg)
+                {
+                    case "start":
+                        Thread myThread = new Thread(SkypeManager.AttachSkype);
+                        myThread.Start();
+                        break;
+                    case "tm":
+                        SkypeManager.SendMessage("test message");
+                        break;
                 }
                 msg = Console.ReadLine();
             }
