@@ -1,4 +1,4 @@
-﻿using Interop.SKYPE4COMLib;
+﻿using SKYPE4COMLib;
 using SkypeBot;
 using System;
 using System.Collections.Generic;
@@ -16,8 +16,8 @@ namespace SkypeBotConsole
         private static string _BotSkypeName = String.Empty;
 
         static SkypeManager() {
-            _SkypeChatUniqueCode = ConfigurationSettings.AppSettings.GetValues("SkypeChatUniqueCode").ToString();
-            _BotSkypeName = ConfigurationSettings.AppSettings.GetValues("SkypeBotName").ToString();
+            _SkypeChatUniqueCode = ConfigurationManager.AppSettings["SkypeChatUniqueCode"];
+            _BotSkypeName = ConfigurationManager.AppSettings["SkypeBotName"];
         }
 
         public static void AttachSkype()

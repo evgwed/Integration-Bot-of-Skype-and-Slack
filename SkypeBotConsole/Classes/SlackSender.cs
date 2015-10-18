@@ -13,9 +13,9 @@ namespace SkypeBot
         private static string _SlackWebHookName = String.Empty;
         private static string _SlackChannelName = String.Empty;
         static SlackSender(){
-            _SlackUrlWithAccessToken = ConfigurationSettings.AppSettings.GetValues("SlackUrlWithAccessToken").ToString();
-            _SlackWebHookName = ConfigurationSettings.AppSettings.GetValues("SlackWebHookName").ToString();
-            _SlackChannelName = ConfigurationSettings.AppSettings.GetValues("SlackChannelName").ToString();
+            _SlackUrlWithAccessToken = ConfigurationManager.AppSettings["SlackUrlWithAccessToken"];
+            _SlackWebHookName = ConfigurationManager.AppSettings["SlackWebHookName"];
+            _SlackChannelName = ConfigurationManager.AppSettings["SlackChannelName"];
         }
         public static void SendMessage(string messageText) {
 
